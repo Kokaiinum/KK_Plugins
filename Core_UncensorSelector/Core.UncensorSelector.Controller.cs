@@ -181,6 +181,14 @@ namespace UncensorSelector
             public void UpdateSkinLine() => SkinMatch.SetLineVisibility(ChaControl, BodyData, PenisData, BallsData);
             public void UpdateSkinGloss() => SkinMatch.SetSkinGloss(ChaControl, BodyData, PenisData, BallsData);
             /// <summary>
+            /// Returns the exType or 0 if the exType field does not exists for cross version compatibility
+            /// </summary>
+            private static int ExType(ChaControl chaControl) => typeof(ChaControl).GetProperties(AccessTools.all).Any(p => p.Name == "exType") ? ExType_internal(chaControl) : 0;
+            /// <summary>
+            /// In a separate method to avoid missing method exception
+            /// </summary>
+            private static int ExType_internal(ChaControl chaControl) => chaControl.exType;
+            /// <summary>
             /// Current BodyData for this character
             /// </summary>
             public BodyData BodyData
@@ -324,17 +332,21 @@ namespace UncensorSelector
                     while (chaControl.objBody == null)
                         yield return null;
 
-                    ReloadCharacterBody(chaControl, bodyData);
+                    if (ExType(chaControl) == 0) //exType of 1 indicates Janitor, don't modify his body.
+                        ReloadCharacterBody(chaControl, bodyData);
                     ReloadCharacterPenis(chaControl, penisData, penisVisible);
                     ReloadCharacterBalls(chaControl, ballsData, ballsVisible);
 
                     UpdateSkin(chaControl, bodyData);
-                    chaControl.updateBustSize = true;
-                    Traverse.Create(chaControl).Method("UpdateSiru", new object[] { true }).GetValue();
-                    SetChestNormals(chaControl, bodyData);
+                    if (ExType(chaControl) == 0)
+                    {
+                        chaControl.updateBustSize = true;
+                        Traverse.Create(chaControl).Method("UpdateSiru", new object[] { true }).GetValue();
+                        SetChestNormals(chaControl, bodyData);
 
-                    chaControl.customMatBody.SetTexture(ChaShader._AlphaMask, Traverse.Create(chaControl).Property("texBodyAlphaMask").GetValue() as Texture);
-                    Traverse.Create(chaControl).Property("updateAlphaMask").SetValue(true);
+                        chaControl.customMatBody.SetTexture(ChaShader._AlphaMask, Traverse.Create(chaControl).Property("texBodyAlphaMask").GetValue() as Texture);
+                        Traverse.Create(chaControl).Property("updateAlphaMask").SetValue(true);
+                    }
                 }
                 /// <summary>
                 /// Update the mesh of the penis and set the visibility
@@ -472,8 +484,11 @@ namespace UncensorSelector
 
                     // Check if UVs got corrupted when we loaded the asset, uncommon
                     var uvCopy = src.sharedMesh.uv.ToArray();
-                    if (AreUVsCorrupted(uvCopy))
+                    if (AreUVsCorrupted(uvCopy) && !DidErrorMessage)
+                    {
                         Log(LogLevel.Error, $"UVs got corrupted when creating uncensor mesh {src.sharedMesh.name}, body textures might be corrupted. Consider updating your GPU drivers.");
+                        DidErrorMessage = true;
+                    }
 
                     //Copy the mesh
                     dst.sharedMesh = src.sharedMesh;
@@ -487,8 +502,12 @@ namespace UncensorSelector
                     if (copyMaterials)
                         dst.materials = src.materials;
 
-                    if (src.sharedMesh.name != "o_dankon" && src.sharedMesh.name != "o_gomu")
+                    if (src.sharedMesh.name != "o_dankon" && src.sharedMesh.name != "o_gomu" && src.sharedMesh.name != "o_dan_f")
                         chaControl.StartCoroutine(HandleUVCorrupionsCo(dst, uvCopy));
+
+                    //Regardless of the receive shadow settings configured for the mesh it's always set to false for dick and balls, change it so shadows work correctly
+                    if (dst.sharedMesh.name == "o_dankon" || dst.sharedMesh.name == "o_dan_f")
+                        dst.receiveShadows = true;
                 }
 
                 private static IEnumerator HandleUVCorrupionsCo(SkinnedMeshRenderer dst, Vector2[] uvCopy)

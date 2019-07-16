@@ -34,7 +34,7 @@ v1.2 Fixed hair physics not working (Thanks Rau/Marco/Essu)<br/>
 </details>
 
 #### KK_GUIDMigration
-**v1.5 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v72/KK_GUIDMigration.v1.5.zip)**<br/>
+**v1.5.3 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v96/KK_GUIDMigration.v1.5.3.zip)**<br/>
 Note: Only to be used with BepisPlugins r10, earlier versions are incompatible!<br/>
 
 Migrates information on your character cards in cases where a mod's GUID or IDs changed so you don't have to manually reselect everything. Will not attempt migration if you have the old mod but not the new.<br/>
@@ -63,7 +63,7 @@ When the category is - the extended data will be stripped and will be treated as
 Adds some extra error handling to the game so certain hair mods wont lock up the whole game when they appear in a cutscene.<br/>
 
 #### KK_ReloadCharaListOnChange
-**v1.4.1 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v46/KK_ReloadCharaListOnChange.v1.4.1.zip)**<br/>
+**v1.5.1 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v91/KK_ReloadCharaListOnChange.v1.5.1.zip)**<br/>
 
 Reloads the list of characters and coordinates in the character maker when any card is added or removed from the folders. Supports adding and removing large numbers of cards at once.<br/>
 
@@ -72,7 +72,9 @@ v1.1 Fixed new coordinates saved from within the game not being handled correctl
 v1.2 Fixed error when exiting the chara maker<br/>
 v1.3 Updated for plugin compatibility<br/>
 v1.4 Studio support<br/>
-v1.4.1 Compatibility with BepisPlugins versions higher than r8
+v1.4.1 Compatibility with BepisPlugins versions higher than r8<br/>
+v1.5 Koikatsu Party compatibility<br/>
+v1.5.1 Create card folders if missing to prevent errors<br/>
 </details>
 
 #### KK_InvisibleBody EC_InvisibleBody
@@ -112,8 +114,7 @@ v1.3.1 Removed log messages. Oops.
 </details>
 
 #### KK_UncensorSelector EC_UncensorSelector
-**v3.6.1 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v76/KK_UncensorSelector.v3.6.1.zip)** - For Koikatsu<br/>
-**v3.6 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v75/EC_UncensorSelector.v3.6.zip)** - For EmotionCreators<br/>
+**v3.7 - [Download](https://www.patreon.com/posts/28204946)**<br/>
 
 3.0 update note: Uncensors from previous versions are not compatible, download new versions [here.](https://mega.nz/#F!upYGBTAZ!S1lMalC33LYEditk7GwzgQ!n54h1KZS)<br/>
 
@@ -144,16 +145,22 @@ v3.5 Added a message that displays if the skin texture has become corrupt and at
 v3.5.1 Reduce false positives for the above change<br/>
 v3.6 EmotionCreators port, removed "none" as a default config option<br/>
 v3.6.1 Updated for KK Darkness<br/>
+v3.6.2 Fix replacing janitor's body when it shouldn't<br/>
+v3.6.3 Fix janitor's uncensor<br/>
+v3.6.4 Fix compatibility issues for non Darkness game versions<br/>
+v3.7 Fix shadows on male parts and reduce error spam<br/>
 </details>
 
 #### KK_Subtitles
-**v1.2 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v50/KK_Subtitles.v1.2.zip)**<br/>
+**v1.4 - [Download](https://www.patreon.com/posts/27699376)**<br/>
 
-Subtitles for H scenes and spoken text in dialogues<br/>
+Subtitles for H scenes, spoken text in dialogues, and character maker.<br/>
 
 <details><summary>Change Log</summary>
 v1.1 Fixed H subs not working for some people<br/>
-v1.2 Subtitles for idle lines in dialogue
+v1.2 Subtitles for idle lines in dialogue<br/>
+v1.3 Subtitles for character maker<br/>
+v1.4 Fixed subtitles in the character maker being under the UI<br/>
 </details>
 
 #### KK_AnimationController
@@ -173,8 +180,9 @@ v2.0 Significant rewrite with KKAPI integration. Can now link eyes and neck to o
 v2.1 Fix neck link not working, fix linking after unlinking not working<br/>
 </details>
 
-#### KK_ClothingUnlocker
-**v1.1 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v62/KK_ClothingUnlocker.v1.1.zip)**<br/>
+#### KK_ClothingUnlocker EC_ClothingUnlocker
+**v1.1 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v62/KK_ClothingUnlocker.v1.1.zip)** - For Koikatsu<br/>
+**v1.1 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v77/EC_ClothingUnlocker.v1.1.zip)** - For EmotionCreators<br/>
 
 Allows gender restricted clothing to be used on all characters.<br/>
 
@@ -234,8 +242,7 @@ Allows you to override vanilla list files. Comes with some overrides that enable
 Overriding list files can allow you to do things like enable bras with some shirts which don't normally allow it, or skirts with some tops, etc. Any part of of the list can be changed except for ID.<br/>
 
 #### KK_HairAccessoryCustomizer EC_HairAccessoryCustomizer
-**v1.0 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v71/KK_HairAccessoryCustomizer.v1.0.zip)** - For Koikatsu<br/>
-**v1.0 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v73/EC_HairAccessoryCustomizer.v1.0.zip)** - For EmotionCreators<br/>
+**v1.1.2 - [Download](https://www.patreon.com/posts/27712341)**<br/>
 
 Adds configuration options for hair accessories to the character maker. Hair accessories can be set to match color with the hair, enable hair gloss, modify outline color, and has a separate color picker for the hair tie part. Hairs that support a length slider can also hair their length adjusted, just like vanilla front hairs. Saves and loads to cards and coordinates.<br/>
 
@@ -244,6 +251,12 @@ Configuration options will work only on properly configured hair accessories. Al
 Requires Marco's [KKAPI](https://github.com/ManlyMarco/KKAPI/releases) v1.3 or higher, previous versions will NOT work.<br/>
 
 Note for modders: These options will only show up for hair accessories that are properly configured. For accessories to work the accessory must have a ChaCustomHairComponent MonoBehavior in addition to the ChaAccessoryComponent MonoBehavior. Hair accessory color will display if the ChaCustomHairComponent rendAccessory array has meshes configured. The length slider will appear if the ChaCustomHairComponent trfLength array has bones configured. Hair color will only match to meshes configured in the ChaCustomHairComponent rendHair array. Also check out [this guide](https://github.com/DeathWeasel1337/KK_Plugins/wiki/Hair-Accessory-Guide) for how to create hair accessories.<br/>
+
+<details><summary>Change Log</summary>
+v1.1 Fixed a bug with changing coordinates outside of Studio not applying color matching. Fixed a bug where changing hair color in the maker would not apply color matching to other outfit slots.<br/>
+v1.1.1 Fixed hair accessories matching color when they shouldn't.<br/>
+v1.1.2 Fixed hair accessories matching color when they shouldn't, again.<br/>
+</details>
 
 #### EC_Demosaic
 **v1.1 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v73/EC_Demosaic.v1.1.zip)** - For EmotionCreators<br/>
@@ -255,29 +268,69 @@ Removes the mosaic from female characters. Based on the demosaic for Koikatsu by
 v1.1 Added a config option to disable the plugin<br/>
 </details>
 
+#### KK_HeadFix
+**v1.1 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v89/KK_HeadFix.v1.1.zip)**<br/>
+Fixes a bug where alternate heads cannot load modded eyeliners and modded heads cannot load any eyeliners.<br/>
 
-# Experimental plugins
-Experimental or unfinished plugins. No support will be given and most likely no fixes will be made. Feel free to report bugs that aren't already listed but don't expect a fix. Anyone who wants to improve these plugins is welcome to do so, all the source code is available.<br/>
+<details><summary>Change Log</summary>
+v1.1 Support for Koikatsu Party<br/>
+</details>
 
+#### KK_SettingsFix
+**v1.1 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v86/KK_SettingsFix.v1.1.zip)**<br/>
+Creates setup.xml if missing and makes CharaStudio read settings from the setup.xml. This means you no longer need to run InitSetting.exe to change Studio settings and registry entries are no longer required.<br/>
 
-#### KK_BodyShaders
-**Beta - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v63/KK_BodyShaders.beta.zip)**<br/>
+<details><summary>Change Log</summary>
+v1.1 Setup.xml is tested for validity, deleted if broken<br/>
+</details>
 
-Applies shaders to a character's body and hair. Currently only has a shader for making goo girls. Or boys, if you're in to that kind of thing. Also has bugs. Not a shader for making bug girls, the kind of bugs that might make your game act strange.<br/>
+#### KK_FreeHRandom
+**v1.1.1 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v91/KK_FreeHRandom.v1.1.1.zip)**<br/>
+Adds buttons to Free H selection screen to get random characters for your H session.<br/>
 
-Shaders by Essu. Requires Marco's [KKAPI](https://github.com/ManlyMarco/KKAPI/releases)<br/>
+<details><summary>Change Log</summary>
+v1.1 Added UI, KK Party support<br/>
+v1.1.1 Create card folders if missing to prevent errors<br/>
+</details>
 
 #### KK_Colliders
 **v1.0 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v37/KK_Colliders.v1.0.zip)**<br/>
 
 Adds floor, breast, hand, and skirt colliders. Ported from Patchwork.<br/>
 
-Requires Marco's [KKAPI](https://github.com/ManlyMarco/KKAPI/releases)<br/>
+#### KK_MaterialEditor
+**v1.2 - [Download](https://www.patreon.com/posts/27881027)**<br/>
+MaterialEditor is a plugin that allows you to edit many properties of objects that aren't usually accessible in game. Much like [Marco's clothing overlays](https://github.com/ManlyMarco/Koikatu-Overlay-Mods) you can replace the texture of an item, however with MaterialEditor you can edit much more than clothes. Edit clothes, accessories, hair, and even Studio items.
 
-#### KK_FreeHRandom
-**v1.0 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v38/KK_FreeHRandom.v1.0.zip)**<br/>
+Features:
+* Export UV maps of a mesh to help with drawing textures
+* Replace nearly any texture with custom textures
+* Change properties of materials to control things like shininess or outline thickness
+* Change properties of the mesh to affect whether it casts shadows or disable a mesh completely
+* All changes save and load with the card or Studio scene
+* Duplicate textures are saved to the card once. 100 accessories with the same texture have the same file size as one accessory with a texture
 
-Press F5 at Free H selection screen to get random characters for your H session.<br/>
+Access the Material Editor by pressing the "Open Material Editor" button on clothes, hair, or accessories in the character maker. Access it in Studio by pressing the "Mat. Editor" button on the Workspace with a studio item selected.
+
+<details><summary>Change Log</summary>
+v1.1 Fixed errors loading coordinates, errors loading scenes with multiple characters<br/>
+v1.2 Added the ability to change body and face materials<br/>
+</details>
+
+# Experimental plugins
+Experimental or unfinished plugins. No support will be given and most likely no fixes will be made. Feel free to report bugs that aren't already listed but don't expect a fix. Anyone who wants to improve these plugins is welcome to do so, all the source code is available.<br/>
+
+
+#### KK_BodyShaders
+**Beta 2 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v85/KK_BodyShaders.beta.2.zip)**<br/>
+
+Applies shaders to a character's body and hair. Currently only has a shader for making goo girls. Or boys, if you're in to that kind of thing. Also has bugs. Not a shader for making bug girls, the kind of bugs that might make your game act strange.<br/>
+
+Shaders by Essu. Requires Marco's [KKAPI](https://github.com/ManlyMarco/KKAPI/releases)<br/>
+
+<details><summary>Change Log</summary>
+Beta 2 Fix checkbox not working<br/>
+</details>
 
 #### KK_ANIMATIONOVERDRIVE
 **v1.0 - [Download](https://github.com/DeathWeasel1337/KK_Plugins/releases/download/v42/KK_ANIMATIONOVERDRIVE.zip)**<br/>

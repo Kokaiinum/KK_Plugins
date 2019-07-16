@@ -380,14 +380,31 @@ namespace HairAccessoryCustomizer
                 if (chaAccessoryComponent?.rendNormal == null) return;
                 if (chaCustomHairComponent?.rendHair == null) return;
 
-                if (updateCharacter && MakerAPI.InsideAndLoaded && hairAccessoryInfo.ColorMatch)
+                if (updateCharacter && hairAccessoryInfo.ColorMatch)
                 {
-                    ChaCustom.CvsAccessory cvsAccessory = AccessoriesApi.GetCvsAccessory(slot);
-                    cvsAccessory.UpdateAcsColor01(ChaControl.chaFile.custom.hair.parts[0].baseColor);
-                    cvsAccessory.UpdateAcsColor02(ChaControl.chaFile.custom.hair.parts[0].startColor);
-                    cvsAccessory.UpdateAcsColor03(ChaControl.chaFile.custom.hair.parts[0].endColor);
-                    OutlineColorPicker.SetValue(slot, ChaControl.chaFile.custom.hair.parts[0].outlineColor, false);
-                    hairAccessoryInfo.OutlineColor = ChaControl.chaFile.custom.hair.parts[0].outlineColor;
+                    if (MakerAPI.InsideAndLoaded)
+                    {
+                        ChaCustom.CvsAccessory cvsAccessory = AccessoriesApi.GetCvsAccessory(slot);
+                        cvsAccessory.UpdateAcsColor01(ChaControl.chaFile.custom.hair.parts[0].baseColor);
+                        cvsAccessory.UpdateAcsColor02(ChaControl.chaFile.custom.hair.parts[0].startColor);
+                        cvsAccessory.UpdateAcsColor03(ChaControl.chaFile.custom.hair.parts[0].endColor);
+                        OutlineColorPicker.SetValue(slot, ChaControl.chaFile.custom.hair.parts[0].outlineColor, false);
+                        hairAccessoryInfo.OutlineColor = ChaControl.chaFile.custom.hair.parts[0].outlineColor;
+                    }
+                    else
+                    {
+                        foreach (Renderer renderer in chaCustomHairComponent.rendHair)
+                        {
+                            if (renderer == null) continue;
+
+                            if (renderer.material.HasProperty(ChaShader._Color))
+                                renderer.material.SetColor(ChaShader._Color, ChaControl.chaFile.custom.hair.parts[0].baseColor);
+                            if (renderer.material.HasProperty(ChaShader._Color2))
+                                renderer.material.SetColor(ChaShader._Color2, ChaControl.chaFile.custom.hair.parts[0].startColor);
+                            if (renderer.material.HasProperty(ChaShader._Color3))
+                                renderer.material.SetColor(ChaShader._Color3, ChaControl.chaFile.custom.hair.parts[0].endColor);
+                        }
+                    }
                 }
 
                 Texture2D texHairGloss = (Texture2D)AccessTools.Property(typeof(ChaControl), "texHairGloss").GetValue(ChaControl, null);
